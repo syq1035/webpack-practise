@@ -2,6 +2,8 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
+console.log('process.env.NODE_ENV =', process.env.NODE_ENV) // 打印环境变量
+
 module.exports = {
   entry: './src/index.js', // 打包入口地址
   output: {
