@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js', // 打包入口地址
@@ -18,6 +19,7 @@ module.exports = {
   plugins:[ // 配置插件
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new CleanWebpackPlugin() // 引入插件
   ]
 }
