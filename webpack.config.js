@@ -24,7 +24,7 @@ const config = {
     rules: [
       {
         test: /\.css$/, //匹配所有的 css 文件
-        use: 'css-loader' // use: 对应的 Loader 名称
+        use: ['style-loader', 'css-loader'] // use: 对应的 Loader 名称
       }
     ]
   },
