@@ -23,8 +23,8 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.css$/, //匹配所有的 css 文件
-        use: ['style-loader', 'css-loader', 'postcss-loader'] // use: 对应的 Loader 名称
+        test: /\.(s[ac]|c)ss$/i, //匹配所有的 css 文件
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] // use: 对应的 Loader 名称
       }
     ]
   },
