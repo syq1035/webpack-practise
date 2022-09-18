@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 console.log('process.env.NODE_ENV =', process.env.NODE_ENV) // 打印环境变量
 
@@ -24,7 +25,12 @@ const config = {
     rules: [
       {
         test: /\.(s[ac]|c)ss$/i, //匹配所有的 css 文件
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] // use: 对应的 Loader 名称
+        use: [
+          // 'style-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'] // use: 对应的 Loader 名称
       }
     ]
   },
@@ -32,7 +38,10 @@ const config = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-    new CleanWebpackPlugin() // 引入插件
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash:8].css'
+    }),
   ]
 }
 
