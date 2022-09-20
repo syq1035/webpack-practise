@@ -24,6 +24,14 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.js$/i,
+        use: [
+          {
+            loader: 'babel-loader',
+          }
+        ]
+      },
+      {
         test: /\.(s[ac]|c)ss$/i, //匹配所有的 css 文件
         use: [
           // 'style-loader',
